@@ -4,7 +4,7 @@ from pygame.sprite import Sprite
 from setting import Settings
 from ship import Ship
 
-class Alien(Sprite):
+class AlienInvasion:
     """管理游戏资源和行为的类"""
 
     def __init__(self):
