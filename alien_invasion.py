@@ -1,7 +1,7 @@
 import sys
 import pygame
 from pygame.sprite import Sprite
-from setting import Settings
+from settings import Settings
 from ship import Ship
 
 class AlienInvasion:
@@ -12,6 +12,7 @@ class AlienInvasion:
         pygame.init()
         self.clock = pygame.time.Clock()
         self.settings = Settings()
+
         self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Alien Invasion")
 
@@ -21,17 +22,17 @@ class AlienInvasion:
         self.bg_color = (230, 230, 230)
 
     def run_game(self):
-        """Start the main loop for the game."""
+        """开始游戏的主循环"""
         while True:
-            # Watch for keyboard and mouse events.
+            # 侦听键盘和鼠标事件
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-            # Redraw the screen during each pass through the loop.
+            # 每次循环时都重绘屏幕
             self.screen.fill(self.settings.bg_color)
             self.ship.blitme()
 
-            # Make the most recently drawn screen visible.
+            # 让最近绘制的屏幕可见
             pygame.display.flip()
             self.clock.tick(60)
 
